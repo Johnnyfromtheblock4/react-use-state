@@ -1,0 +1,11 @@
+/* HEADER */
+.title-container {
+  background-color: rgb(243, 243, 243);
+}
+
+/* MAIN */
+.btn.active {
+  background-color: #FFC107;
+  border: black;
+  color: black;
+}
