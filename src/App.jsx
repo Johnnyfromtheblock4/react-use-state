@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 const languages = [
   {
     id: 1,
@@ -40,7 +41,7 @@ const languages = [
 
 function App() {
   // definizione della var di stato che mostra il linguaggio selezionato
-  const [language, setLanguage] = languages[0];
+  const [language, setLanguage] = useState(languages[0]);
   return (
     <div className="container my-5">
       <div className="row">
@@ -48,7 +49,13 @@ function App() {
           {/* {elenco dei pulsanti} */}
           {languages.map((language) => {
             return (
-              <button className="btn btn-primary me-2">{language.title}</button>
+              <button
+                className="btn btn-primary me-2"
+                onClick={() => setLanguage(language)}
+                key={language.id}
+              >
+                {language.title}
+              </button>
             );
           })}
         </div>
