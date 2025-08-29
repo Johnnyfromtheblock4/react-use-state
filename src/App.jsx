@@ -47,14 +47,18 @@ function App() {
       <div className="row">
         <div className="col-12">
           {/* {elenco dei pulsanti} */}
-          {languages.map((language) => {
+          {languages.map((lang) => {
             return (
               <button
-                className="btn btn-primary me-2"
-                onClick={() => setLanguage(language)}
-                key={language.id}
+                className={`btn me-2 ${
+                  language != null && lang.id === language.id
+                    ? "btn-warning"
+                    : "btn-primary"
+                }`}
+                onClick={() => setLanguage(lang)}
+                key={lang.id}
               >
-                {language.title}
+                {lang.title}
               </button>
             );
           })}
