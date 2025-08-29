@@ -41,7 +41,7 @@ const languages = [
 
 function App() {
   // definizione della var di stato che mostra il linguaggio selezionato
-  const [language, setLanguage] = useState(languages[0]);
+  const [language, setLanguage] = useState(null);
   return (
     <div className="container my-5">
       <div className="row">
@@ -62,8 +62,14 @@ function App() {
         {/* {Card con titolo e descrizione} */}
         <div className="col-12 mt-4">
           <div className="card p-3">
-            <h2>{language.title}</h2>
-            <p>{languages.description}</p>
+            {language === null ? (
+              <h2>Nessun linguaggio è selezionato</h2>
+            ) : (
+              <>
+                <h2>{language.title}</h2>
+                <p>{language.description}</p>
+              </>
+            )}
           </div>
         </div>
       </div>
