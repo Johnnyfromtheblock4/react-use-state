@@ -1,7 +1,6 @@
-// importo useState
 import { useState } from "react";
-// importo card
 import Card from "./components/Card";
+import Buttons from "./components/Buttons";
 
 const languages = [
   {
@@ -43,41 +42,27 @@ const languages = [
 ];
 
 function App() {
-  // definizione della var di stato che mostra il linguaggio selezionato
   const [language, setLanguage] = useState(null);
+
   return (
     <div className="container my-5">
       <div className="row">
         <div className="col-12">
-          {/* {elenco dei pulsanti} */}
-          {languages.map((lang) => {
-            return (
-              <button
-                className={`btn me-2 ${
-                  language != null && lang.id === language.id
-                    ? "btn-warning"
-                    : "btn-primary"
-                }`}
-                onClick={() => setLanguage(lang)}
-                key={lang.id}
-              >
-                {lang.title}
-              </button>
-            );
-          })}
+          <div className="d-flex flex-wrap gap-2">
+            {languages.map((lang) => {
+              const active = language && lang.id === language.id;
+              return (
+                <Buttons
+                  key={lang.id}
+                  title={lang.title}
+                  isActive={active}
+                  onSelect={() => setLanguage(lang)}
+                />
+              );
+            })}
+          </div>
         </div>
-        {/* {Card con titolo e descrizione} */}
         <div className="col-12 mt-4">
-          {/* <div className="card p-3">
-            {language === null ? (
-              <h2>Nessun linguaggio è selezionato</h2>
-            ) : (
-              <>
-                <h2>{language.title}</h2>
-                <p>{language.description}</p>
-              </>
-            )}
-          </div> */}
           <Card language={language} />
         </div>
       </div>
