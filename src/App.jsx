@@ -1,5 +1,7 @@
 // importo useState
 import { useState } from "react";
+// importo card
+import Card from "./components/Card";
 
 const languages = [
   {
@@ -66,7 +68,7 @@ function App() {
         </div>
         {/* {Card con titolo e descrizione} */}
         <div className="col-12 mt-4">
-          <div className="card p-3">
+          {/* <div className="card p-3">
             {language === null ? (
               <h2>Nessun linguaggio è selezionato</h2>
             ) : (
@@ -75,7 +77,8 @@ function App() {
                 <p>{language.description}</p>
               </>
             )}
-          </div>
+          </div> */}
+          <Card language={language} />
         </div>
       </div>
     </div>
